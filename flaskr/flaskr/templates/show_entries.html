@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+      <dl>
+        <dt>Title:
+        <dd><input type=text size=30 name=title>
+        <dt>Names:
+        <dd><textarea name=names rows=5 cols=40></textarea>
+        <dt>Tasks:
+        <dd><textarea name=chores rows=5 cols=40></textarea>
+        <dt>Constraints:
+        <dd><textarea name=constraints rows=5 cols=40></textarea>
+        <dt>Weeks:
+        <dd><input type=integer size=30 name=weeks>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+  {% endif %}
+  <ul class=entries>
+  {% for entry in entries %}
+    <li><h2>{{ entry.title }}</h2>{{ entry.names|safe }} 
+      <P>
+        <table>
+        {% for t in schedule %}
+            <tr>
+            {% for i in t %}
+                <td>{{ i }}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+         </table>
+    
+      <a href="{{ url_for('generate_rotation', entry_title = entry.title) }}">Generate Rotation</a>
+      <a href="{{ url_for('delete_entry', entry_title = entry.title) }}">Delete</a>
+      </P>
+  {% else %}
+    <li><em>Enter names, tasks, and contstraints separated by commas.</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

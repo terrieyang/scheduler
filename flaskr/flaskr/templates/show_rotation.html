@@ -1,0 +1,54 @@
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+table tr:not(:first-child) {
+    counter-increment: rowNumber;
+}
+
+.css-serial {
+  counter-reset: serial-number;  /* Set the serial number counter to 0 */
+}
+
+.css-serial td:first-child:before {
+  counter-increment: serial-number;  /* Increment the serial number counter */
+  content: counter(serial-number);  /* Display the counter */
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+{% block body %}
+  <h2><center>{{ entry.title }}</h2></center>
+    <P>
+      <table class="css-serial">
+      <tr>
+      <td></td>
+        {% for task in chores %}
+      
+          <td>{{ task }}</td>
+        {% endfor %}
+      </tr>
+      {% for week in schedule %}
+          <tr>
+          <td></td>
+          {% for person in week %}
+        
+              <td>{{ person }}</td>
+          {% endfor %}
+          </tr>
+      {% endfor %}
+       </table>
+<center><a href="{{ url_for('show_entries') }}">Back</a></center>
+{% endblock %}
+
+
