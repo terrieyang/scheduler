@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Blog</title>
+		<link href="./styles.css"></link>
+		<style>
+			article{
+				margin: 20px;
+				font-size: 22px;
+			}
+			article p {
+				margin-left: 20px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<h1>My Blog</h1>
+		<form submit = "submit()">
+			<label>Title <input id="title" type="text" /></label>
+			<label>Text <input id="text" type="text" /></label>
+			<input type="button" onclick="submit()" value="Submit"/>
+		</form>
+		<section>
+			<article>
+				<h1>HackDavis</h1>
+				<p>Some Text</p>
+			</article>
+		</section>
+	</body>
+	<script>
+			function submit() {
+				var title = window.document.getElementById;
+				("title").nodeValue;
+				var text = window.document.getElementById;
+				console.log(title);
+				console.log(text);
+			}
+			var array = [5, 9, 10, 1, -1, 5, 2];
+			function sort(array) {
+				for(var i = 0; i < array.length; i ++) {
+					for (var j = 0; j < i; j++) {
+						if(array[i] < array[j]) {
+							array[j] = array[i]
+						}
+					}
+				}
+			}
+
+			sort(array)
+			console.log(array);
+		</script>
+</html>

@@ -115,11 +115,11 @@ def generate_rotation(entry_title):
 	constraints = {}
 	current_name = ""
 	for item in const:
-		item = item.decode('utf-8')
+		print(names)#item = item.decode('utf-8')
 		if item in names:
 			current_name = item
 			constraints[current_name] = []
-		elif item != None and item != "":
+		elif item != None and item != '':
 			constraints[current_name] += [item]
 		else:
 			pass
