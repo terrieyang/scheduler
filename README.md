@@ -1,9 +1,10 @@
-To run, execute in flaskr:
+#### To run, execute in flaskr:
 
 export FLASK_APP=flaskr
+
 flask run
 
-Sample inputs:
+#### Sample inputs:
 
 Names: Bethany,Grace,Zoe
 
